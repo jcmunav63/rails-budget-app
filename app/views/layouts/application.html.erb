@@ -6,11 +6,30 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", media: 'all', "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   </head>
 
   <body>
+    <nav style="margin-left: 10%;">
+      <%= button_to 'Sign Out', destroy_user_session_path, method: :delete %>
+    </nav>
+    <%# Check how these flashes display %>
+    <div style="margin-left: 10%;">
+      <% flash.each do |key, value| %>
+        <div class="flash <%= key %>">
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
+    
+    <div>
+      
+    </div>
+
     <%= yield %>
   </body>
 </html>
