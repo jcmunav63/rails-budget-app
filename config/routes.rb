@@ -1,11 +1,19 @@
 Rails.application.routes.draw do
+  # get 'splash/index'
   # get 'categories/index'
   devise_for :users
 
   get "up" => "rails/health#show", as: :rails_health_check
 
-  root to: "categories#index"
+  root 'splash#index'
+  # root to: "categories#index"
 
-  # Defines the root path route ("/")
-  # root "categories#index"
+  resources :users, only: [:index] do
+    resources :categories, only: [:index] do # , :new, :create, :destroy, :show
+      resources :category_expenses, only: [:index] do # , :new, :create, :destroy
+      end
+    end
+    resources :expenses, only: [:index] do
+    end
+  end
 end
