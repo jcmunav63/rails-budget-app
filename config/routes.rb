@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   # root to: "categories#index"
 
   resources :users, only: [:index] do
-    resources :categories, only: [:index] do # , :new, :create, :destroy, :show
+    resources :categories, only: [:index, :show] do # , :new, :create, :destroy, :show
       resources :category_expenses, only: [:index] do # , :new, :create, :destroy
       end
     end
