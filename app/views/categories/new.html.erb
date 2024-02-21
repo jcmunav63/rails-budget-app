@@ -1,0 +1,25 @@
+<div class="container-fluid; width: 100%">
+  <div>
+    <%= form_with(model: [@user, @category], url: user_categories_path(current_user)) do |form| %>
+      <table>
+        <tr>
+          <td style="width: 20%;"><%= form.label :name, class: "label" %></td>
+          <td style="width: 80%;"><%= form.text_field :name, class: "text-field" %></td>
+        </tr>
+        <tr>
+          <td style="width: 20%;"><%= form.label :icon_url, class: "label" %></td>
+          <td><%= form.text_field :icon, class: "text-field" %></td>
+        </tr>
+        <tr style="display: none;">
+          <td style="width: 20%;"><%= form.label :total_expenses, class: "number" %></td>
+          <td><%= form.text_field :total_expenses, class: "numeric-field", value: "0" %></td>
+        </tr>
+      </table>
+      <div>
+        <strong>
+          <%= form.submit "Add Category", class: "btn btn-primary", style: "width: 100%" %>
+        </strong>
+      </div>
+    <% end %>
+  </div>
+</div>
