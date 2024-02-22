@@ -8,8 +8,8 @@
           <td style="width: 80%;"><%= form.text_field :name, class: "text-field" %></td>
         </tr>
         <tr>
-          <td style="width: 20%;"><%= form.label :icon_url, class: "label" %></td>
-          <td><%= form.text_field :icon, class: "text-field" %></td>
+          <td style="width: 20%;"><%= form.label :icon, class: "label" %></td>
+          <td><%= form.select :icon, options_for_select(@icon_options), {}, class: "form-control" %></td>
         </tr>
         <tr style="display: none;">
           <td style="width: 20%;"><%= form.label :total_expenses, class: "number" %></td>

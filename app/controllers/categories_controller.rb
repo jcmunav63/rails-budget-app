@@ -1,5 +1,6 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_icon_options, only: [:new, :create]
 
   def index
     @user = current_user
@@ -36,5 +37,12 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:name, :icon, :total_expenses)
+  end
+
+  def set_icon_options
+    @icon_options = Dir.glob("app/assets/images/icons/*").map do |file_path|
+      file_name = File.basename(file_path)
+      ["#{file_name.capitalize.gsub('_', ' ')}", ActionController::Base.helpers.asset_path("icons/#{file_name}")]
+    end
   end
 end
