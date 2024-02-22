@@ -1,5 +1,6 @@
-<div id="cat-new" class="container-fluid; width: 100%">
+<div id="cat-new" class="container-fluid h-100;" style="width: 90%;">
   <%= render partial: 'shared/navbar' %>
+  <%= render partial: 'shared/back_button' %>
   <div>
     <%= form_with(model: [@user, @category], url: user_categories_path(current_user)) do |form| %>
       <table>

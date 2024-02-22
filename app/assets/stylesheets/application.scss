@@ -13,6 +13,13 @@
  *= require_tree .
  *= require_self
  */
+ * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: proxima-nova;
+}
+/* font-family: "ProximaNova-Light"; */
 
 @import "bootstrap";
 
@@ -20,6 +27,12 @@
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: 15px;
 }
 
 /* Mobile devices (portrait) */

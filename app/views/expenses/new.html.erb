@@ -1,5 +1,6 @@
 <div class="container-fluid h-100">
   <%= render partial: 'shared/navbar' %>
+  <%= render partial: 'shared/back_button' %>
   <div class="container col-md-6 offset-md-3">
     <h3>New Expense for: <%= @category.name %></h3>
     <%= form_with(model: [@category, @expense], url: user_category_expenses_path(current_user, @category)) do |form| %>

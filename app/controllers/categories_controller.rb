@@ -4,14 +4,12 @@ class CategoriesController < ApplicationController
 
   def index
     @user = current_user
+    # Eager loading
     @categories = @user.categories.includes(:user)
-    # .all.paginate(page: params[:page], per_page: 3)
   end
 
   def new
     @category = current_user.categories.build
-    # @layout_category = @category # check
-    # render layout: 'application' # check
   end
 
   def create
@@ -29,8 +27,6 @@ class CategoriesController < ApplicationController
   def show
     @user = current_user
     @category = Category.find(params[:id])
-    # .includes(category_expenses: :expense)
-    # @category_expenses = @category.category_expenses
   end
 
   private
