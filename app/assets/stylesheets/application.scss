@@ -13,13 +13,15 @@
  *= require_tree .
  *= require_self
  */
- * {
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: proxima-nova;
+  font-family: "proxima-nova", sans-serif;
 }
-/* font-family: "ProximaNova-Light"; */
+
+/* font-family: "ProximaNova-Light", sans-serif; */
 
 @import "bootstrap";
 
