@@ -54,6 +54,10 @@
     padding: 0;
     box-sizing: border-box;
   }
+
+  #cat-index {
+    width: 90%;
+  }
 }
 
 /* Desktops, large screens */
@@ -62,5 +66,12 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  #cat-index,
+  #cat-new {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: auto;
   }
 }
