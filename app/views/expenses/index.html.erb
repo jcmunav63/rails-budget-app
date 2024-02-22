@@ -1,5 +1,6 @@
 <div class="container-fluid h-100">
   <%= render partial: 'shared/navbar' %>
+  <%= render partial: 'shared/back_button' %>
   <h2 style="text-align: center;">Expenses for: <%= @category.name %></h2>
   <h4 style="text-align: center;">Total Expenses: <%= number_to_currency(@category.total_expenses, precision: 2)%></h4>
   <div class="container">

@@ -1,15 +1,19 @@
 <div class="container-fluid h-100">
   <%= render partial: 'shared/navbar' %>
+  <%= render partial: 'shared/back_button' %>
   <div class="container col-md-6 offset-md-3">
     <h3>New Expense for: <%= @category.name %></h3>
     <%= form_with(model: [@category, @expense], url: user_category_expenses_path(current_user, @category)) do |form| %>
-      <div class="form-group">
-        <%= form.label :name %>
-        <%= form.text_field :name, class: "form-control" %>
-      </div><br />
-      <div class="form-group">
-        <%= form.text_field :amount, class: "form-control", pattern: "[0-9]+([\.,][0-9]+)?" %>
-      </div><br />
+      <table>
+        <tr>
+          <td><%= form.label :name %></td>
+          <td><%= form.text_field :name, class: "form-control" %></td>
+        </tr>
+        <tr>
+          <td><%= form.label :amount %></td>
+          <td><%= form.text_field :amount, class: "form-control", pattern: "[0-9]+([\.,][0-9]+)?" %></td>
+        </tr>
+      </table>
       <%= form.submit "Create Expense", class: "btn btn-primary", style: "width: 100%" %>
     <% end %>
   </div>

@@ -5,15 +5,12 @@ class ExpensesController < ApplicationController
     @user = current_user
     @category = Category.find(params[:category_id])
 
-    # Retrieve expenses associated with the current user (author)
+    # Retrieve expenses associated with the current user (author) and, then,
+    # includes the category_expenses associated with the corresponding category
     @author = @user
-    @expenses = Expense.where(author_id: @user.id)
-
-    # Join with category_expenses table to filter expenses associated with the specific category
-    @expenses = @expenses.joins(:category_expenses).where(category_expenses: { category_id: @category.id })
-
-    # Order expenses by created_at in descending order
-    @expenses = @expenses.order(created_at: :desc)
+    @expenses = Expense.includes(:category_expenses)
+      .where(author_id: @user.id, category_expenses: { category_id: @category.id })
+      .order(created_at: :desc)
 
     # Calculate total expenses
     @total_expenses = @expenses.sum(:amount)

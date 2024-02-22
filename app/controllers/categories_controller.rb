@@ -1,16 +1,15 @@
 class CategoriesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_icon_options, only: %i[new create]
 
   def index
     @user = current_user
+    # Eager loading
     @categories = @user.categories.includes(:user)
-    # .all.paginate(page: params[:page], per_page: 3)
   end
 
   def new
     @category = current_user.categories.build
-    # @layout_category = @category # check
-    # render layout: 'application' # check
   end
 
   def create
@@ -28,13 +27,18 @@ class CategoriesController < ApplicationController
   def show
     @user = current_user
     @category = Category.find(params[:id])
-    # .includes(category_expenses: :expense)
-    # @category_expenses = @category.category_expenses
   end
 
   private
 
   def category_params
     params.require(:category).permit(:name, :icon, :total_expenses)
+  end
+
+  def set_icon_options
+    @icon_options = Dir.glob('app/assets/images/icons/*').map do |file_path|
+      file_name = File.basename(file_path)
+      [file_name.capitalize.gsub('_', ' ').to_s, ActionController::Base.helpers.asset_path("icons/#{file_name}")]
+    end
   end
 end
