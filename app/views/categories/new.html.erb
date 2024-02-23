@@ -10,7 +10,7 @@
         </tr>
         <tr>
           <td style="width: 20%;"><%= form.label :icon, class: "label" %></td>
-          <td><%= form.select :icon, options_for_select(@icon_options), {}, class: "form-control" %></td>
+          <td><%= form.select :icon, options_for_select(@icon_options), {}, id: "icon", class: "form-control" %></td>
         </tr>
         <tr style="display: none;">
           <td style="width: 20%;"><%= form.label :total_expenses, class: "number" %></td>

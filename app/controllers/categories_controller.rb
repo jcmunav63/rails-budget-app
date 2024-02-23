@@ -40,5 +40,7 @@ class CategoriesController < ApplicationController
       file_name = File.basename(file_path)
       [file_name.capitalize.gsub('_', ' ').to_s, ActionController::Base.helpers.asset_path("icons/#{file_name}")]
     end
+
+    puts "Icon options: #{@icon_options.inspect}"
   end
 end
