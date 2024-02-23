@@ -5,6 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   validates :name, presence: true
-  has_many :categories
-  has_many :expenses
+  has_many :categories, foreign_key: :user_id, class_name: 'Category'
+  has_many :expenses, foreign_key: :author_id, class_name: 'Expense'
 end
