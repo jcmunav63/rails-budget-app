@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :expense do
-    author { nil }
+    association :author, factory: :user
     name { 'MyString' }
-    amount { '9.99' }
+    amount { 9.99 }
   end
 end
