@@ -24,9 +24,9 @@ RSpec.describe User, type: :model do
     it 'has many categories' do
       user = User.create(name: 'Test User', email: 'test@example.com', password: 'password')
       category1 = Category.create(name: 'Category 1',
-        icon: '/images/icon.png', total_expenses: '0.0', user_id: user.id)
+                                  icon: '/images/icon.png', total_expenses: '0.0', user_id: user.id)
       category2 = Category.create(name: 'Category 2',
-        icon: '/images/icon.png', total_expenses: '0.0', user_id: user.id)
+                                  icon: '/images/icon.png', total_expenses: '0.0', user_id: user.id)
 
       expect(user.categories).to include(category1)
       expect(user.categories).to include(category2)

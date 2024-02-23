@@ -34,14 +34,14 @@ RSpec.describe Expense, type: :model do
       author = User.create(name: 'Test User', email: 'test@example.com', password: 'password')
       expense = Expense.new(author_id: author.id, name: 'Example expense', amount: 'abc')
       expense.valid?
-      expect(expense.errors[:amount]).to include("is not a number")
+      expect(expense.errors[:amount]).to include('is not a number')
     end
 
     it 'requires amount to be greater than 0' do
       author = User.create(name: 'Test User', email: 'test@example.com', password: 'password')
       expense = Expense.new(author_id: author.id, name: 'Example expense', amount: 0)
       expense.valid?
-      expect(expense.errors[:amount]).to include("must be greater than or equal to 0.01")
+      expect(expense.errors[:amount]).to include('must be greater than or equal to 0.01')
     end
   end
 end

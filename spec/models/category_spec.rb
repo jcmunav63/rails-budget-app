@@ -16,7 +16,8 @@ RSpec.describe Category, type: :model do
 
     it 'has many category_expenses' do
       author = User.create(name: 'Test User', email: 'test@example.com', password: 'password')
-      category = Category.create(name: 'Test Category', icon: '/images/icon.png', total_expenses: '0.0', user_id: author.id)
+      category = Category.create(name: 'Test Category', icon: '/images/icon.png', total_expenses: '0.0',
+                                 user_id: author.id)
       expense1 = Expense.create(author_id: author.id, name: 'Expense 1', amount: 50)
       expense2 = Expense.create(author_id: author.id, name: 'Expense 2', amount: 100)
       category_expense1 = CategoryExpense.create(category_id: category.id, expense_id: expense1.id)
