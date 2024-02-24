@@ -1,7 +1,8 @@
 <div id="cat-index" class="container-fluid col-md-6 offset-md-3 h-100">
   <%= render partial: 'shared/navbar' %>
-  <h1 style="text-align: center;">Categories Index</h1>
-  <div class="mx-2 h-80" style="width: auto">
+  <h1 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif;
+    margin-top: 15px; margin-bottom: 25px;">Categories Index</h1>
+  <div class="mx-2 h-80" style="width: auto; margin-bottom: 150px;">
     <ul class="list-unstyled" style="width: 100%;">
       <% @categories.each do |category| %>
         <li style="display: flex; justify-content: space-between;">
@@ -12,14 +13,16 @@
             <%= link_to image_tag(category.icon, style: 'width: 32px; height: 32px;', class: 'icon'),
               user_category_expenses_path(current_user, category) %>
           <% end %>
-          <span class="h4 link-underline-opacity-0"><%= link_to category.name,
-            user_category_expenses_path(current_user, category) %></span>
-          <span>$<%= category.total_expenses %></span>
-          <span><%= button_to "X", class: "btn btn-outline-danger", id: "del-btn" %></span>
+          <span class="h4 link-underline-opacity-0" style="font-family: proxima-nova, sans-serif;">
+            <%= link_to category.name, user_category_expenses_path(current_user, category) %></span>
+          <span style="font-family: proxima-nova, sans-serif;">$<%= category.total_expenses %></span>
+          <span><%= button_to "X", type: "button", style: "border: none; color: red; backgroun-color: transparent;",
+            id: "del-btn" %></span>
         </li>
       <% end %>
     </ul>
   </div>
+  <%# <div style="height: 40%;"></div> %>
   <% if can? :create, Category %>
     <p style="mr-3">
       <strong>
