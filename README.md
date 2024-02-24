@@ -19,6 +19,7 @@
     - [Install](#install)
     - [Usage](#usage)
     - [Run tests](#run-tests)
+    - [Deployment](#deployment)
   - [👥 Authors ](#-authors-)
   - [🔭 Future Features ](#-future-features-)
   - [🤝 Contributing ](#-contributing-)
@@ -138,6 +139,16 @@ npx stylelint "**/*.{css,scss}"
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
+### Deployment
+
+This application is deployed on Render. Visit the following link...
+https://rails-budget-app-ls62.onrender.com/
+
+You can visit my presentation video at,,,
+https://www.loom.com/share/5a2c26a3e52143e7a6dc90f6a8ccf463
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 👥 Authors <a name="authors"></a>
 
@@ -151,7 +162,7 @@ npx stylelint "**/*.{css,scss}"
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **App deployment on Render.**
+- **Add functionalities for deleting categories and expenses.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -170,7 +181,9 @@ Thanks in advance.
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to thank all of my colleagues who inspire me to do my best everyday.
+I would like to acknowledge Gregoire Vella for the originYou can review his project at: [on Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
+
+I would also like to thank all of my colleagues who inspire me to do my best everyday.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
