@@ -20,10 +20,12 @@
       <% end %>
     </ul>
   </div>
-  <p style="mr-3">
-    <strong>
-      <%= link_to "New category", new_user_category_path(current_user), class: "btn btn-primary",
-        style: "width: 100%" %>
-    </strong>
-  </p>
+  <% if can? :create, Category %>
+    <p style="mr-3">
+      <strong>
+        <%= link_to "New category", new_user_category_path(current_user), class: "btn btn-primary",
+          style: "width: 100%" %>
+      </strong>
+    </p>
+  <% end %>
 </div>

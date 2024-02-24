@@ -21,7 +21,9 @@
       </tbody>
     </table>
 
-    <%= link_to "Add Expense", new_user_category_expense_path(current_user, @category), class: "btn btn-primary",
+    <% if can? :create, Expense %>
+      <%= link_to "Add Expense", new_user_category_expense_path(current_user, @category), class: "btn btn-primary",
       style: "width: 100%" %>
+    <% end %>
   </div>
 </div>
