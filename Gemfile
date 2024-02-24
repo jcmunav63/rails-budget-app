@@ -83,6 +83,8 @@ gem 'cancancan'
 
 gem 'devise', '~> 4.9'
 
+gem "font-awesome-sass", "~> 6.5.1"
+
 gem 'will_paginate'
 
 gem 'rubocop', '>= 1.0', '< 2.0'

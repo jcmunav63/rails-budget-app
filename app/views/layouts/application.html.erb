@@ -10,11 +10,12 @@
     <%= javascript_importmap_tags %>
     <link href="https://cdn.jsdelivr.net/npm/font-proxima-nova@1.0.1/style.min.css" rel="stylesheet">
     <link href="https://db.onlinewebfonts.com/c/90b3680786db32f9b5c112d1537677db?family=ProximaNova-Light" rel="stylesheet">
+    <link href="//stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
-  <body>
+  <body class="bg-light">
     <%# Check how these flashes display %>
-    <div style="margin-left: 10%;">
+    <div style="margin-left: 10%; font-size: 0.8rem; font-weight: 500;">
       <% flash.each do |key, value| %>
         <div class="flash <%= key %>">
           <%= value %>

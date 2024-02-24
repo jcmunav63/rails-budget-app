@@ -14,7 +14,41 @@
  *= require_self
  */
 
- @import "bootstrap";
+@import "bootstrap";
+
+// @import "font-awesome";
+
+/* Button background color */
+$mynewcolor1:#5fb523;
+
+/* Navbar background color */
+$mynewcolor2:#3778c2;
+
+/* Secondary button background color */
+$mynewcolor3:#434b54;
+
+/* Container background color */
+$mynewcolor4:#ececec;
+
+.navbar {
+  background-color: #3778c2;
+}
+
+@mixin button-bg($bg) {
+  background: $bg;
+  &:hover {
+    background:darken($bg,8%);
+    transition: all 0.3s ease;
+  }
+  &:active {
+    background:darken($bg,25%);
+  } 
+}
+
+.navbar-toggler-icon {
+  $navbar-light-color: white;
+  $navbar-light-toggler-border-color: white;
+}
 
 * {
   margin: 0;
@@ -25,9 +59,17 @@
 
 /* font-family: "ProximaNova-Light", sans-serif; */
 
+.btn-primary {
+  @include button-bg(#5fb523);
+}
+
+.btn-secondary {
+  @include button-bg(#434b54);
+}
+
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 }
 
@@ -45,6 +87,14 @@ table {
   background-color: #f8fcff;
 }
 
+#back-arrow {
+  font-size: 2rem;
+  border: solid 1px gray;
+  border-radius: 4px;
+  margin: 2px 4px;
+  margin-left: 2%;
+}
+
 /* Mobile devices (portrait) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   * {
@@ -60,9 +110,18 @@ table {
     color: red;
   }
 
-  .splash-img {
-    width: 200px;
-    height: 200px;
+  #cat-index,
+  #exp-index,
+  #cat-new,
+  #exp-new {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
+  }
+
+  .navbar-toggler {
+    color: $navbar-light-color;
+    border-color: $navbar-light-toggler-border-color;
   }
 }
 
@@ -74,9 +133,18 @@ table {
     box-sizing: border-box;
   }
 
-  .splash-img {
-    width: 300px;
-    height: 300px;
+  .navbar-toggler {
+    color: $navbar-light-color;
+    border-color: $navbar-light-toggler-border-color;
+  }
+
+  #cat-index,
+  #exp-index,
+  #cat-new,
+  #exp-new {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
   }
 }
 
@@ -86,11 +154,6 @@ table {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-
-  .splash-img {
-    width: 300px;
-    height: 300px;
   }
 
   #cat-index {
