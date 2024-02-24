@@ -1,9 +1,11 @@
-<div id="cat-new" class="container-fluid h-100;" style="width: 90%;">
+<div id="cat-new" class="container-fluid col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 h-100;">
   <%= render partial: 'shared/navbar' %>
   <%= render partial: 'shared/back_button' %>
   <div>
+    <h2 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif;
+      margin-bottom: 30px;">New Category</h2>
     <%= form_with(model: [@user, @category], url: user_categories_path(current_user)) do |form| %>
-      <table>
+      <table style="margin-left:1rem">
         <tr>
           <td style="width: 20%;"><%= form.label :name, class: "label" %></td>
           <td style="width: 80%;"><%= form.text_field :name, class: "text-field" %></td>
@@ -20,7 +22,7 @@
       <% if can? :create, Category %>
         <div>
           <strong>
-            <%= form.submit "Add Category", class: "btn btn-primary", style: "width: 100%" %>
+            <%= form.submit "Add Category", class: "btn btn-primary", style: "width: 100%; margin-top: 140px;" %>
           </strong>
         </div>
       <% end %>

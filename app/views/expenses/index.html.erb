@@ -1,19 +1,23 @@
-<div class="container-fluid h-100">
+<div id="exp-index" class="container-fluid col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 h-100">
   <%= render partial: 'shared/navbar' %>
   <%= render partial: 'shared/back_button' %>
-  <h2 style="text-align: center;">Expenses for: <%= @category.name %></h2>
-  <h4 style="text-align: center;">Total Expenses: <%= number_to_currency(@category.total_expenses, precision: 2)%></h4>
+    <p class="mb-0 pb-0" style="text-align: center; font-family: proxima-nova, sans-serif;">
+      Expenses for:</p>
+    <h4 class="fw-bold mb-0 pb-0" style="text-align: center; font-family: proxima-nova, sans-serif;">
+      <%= @category.name %></h4>
+  <h4 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif; margin-bottom: 15px;">
+    Total Expenses: <%= number_to_currency(@category.total_expenses, precision: 2)%></h4>
   <div class="container">
     <table class="table">
       <thead>
-        <tr>
+        <tr class="bg-white">
           <th>Name</th>
           <th>Amount</th>
         </tr>
       </thead>
       <tbody>
         <% @expenses.each do |expense| %>
-          <tr>
+          <tr class="bg-white my-1">
             <td><%= expense.name %></td>
             <td><%= number_to_currency(expense.amount, precision: 2) %></td>
           </tr>
@@ -23,7 +27,7 @@
 
     <% if can? :create, Expense %>
       <%= link_to "Add Expense", new_user_category_expense_path(current_user, @category), class: "btn btn-primary",
-      style: "width: 100%" %>
+      style: "width: 100%; margin-top: 90px;" %>
     <% end %>
   </div>
 </div>

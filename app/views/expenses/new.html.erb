@@ -1,9 +1,13 @@
-<div class="container-fluid h-100">
+<div id="exp-new" class="container-fluid col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 h-100">
   <%= render partial: 'shared/navbar' %>
   <%= render partial: 'shared/back_button' %>
   <div class="container col-md-6 offset-md-3">
-    <h3>New Expense for: <%= @category.name %></h3>
-    <%= form_with(model: [@category, @expense], url: user_category_expenses_path(current_user, @category)) do |form| %>
+    <h5 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif;">
+      New Expense for: </h5>
+    <h3 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif; margin-bottom: 30px;">
+      <%= @category.name %></h3>
+    <%= form_with(model: [@category, @expense], url: user_category_expenses_path(current_user,
+      @category)) do |form| %>
       <table>
         <tr>
           <td><%= form.label :name %></td>
@@ -15,7 +19,7 @@
         </tr>
       </table>
       <% if can? :create, Expense %>
-        <%= form.submit "Create Expense", class: "btn btn-primary", style: "width: 100%" %>
+        <%= form.submit "Create Expense", class: "btn btn-primary", style: "width: 100%; margin-top: 105px" %>
       <% end %>
     <% end %>
   </div>

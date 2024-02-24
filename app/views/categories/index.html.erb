@@ -1,10 +1,11 @@
-<div id="cat-index" class="container-fluid col-md-6 offset-md-3 h-100">
+<div id="cat-index" class="container-fluid col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 h-100">
   <%= render partial: 'shared/navbar' %>
-  <h1 style="text-align: center;">Categories Index</h1>
-  <div class="mx-2 h-80" style="width: auto">
+  <h1 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif;
+    margin-top: 15px; margin-bottom: 25px;">Categories Index</h1>
+  <div class="mx-2 h-80" style="width: auto; margin-bottom: 150px;">
     <ul class="list-unstyled" style="width: 100%;">
       <% @categories.each do |category| %>
-        <li style="display: flex; justify-content: space-between;">
+        <li class="bg-white my-2" style="display: flex; justify-content: space-between;">
           <% if category.icon.nil? %>
             <%= link_to image_tag('icons/default_logo.png', style: 'width: 32px; height: 32px;', class: 'icon'),
               user_category_expenses_path(current_user, category) %>
@@ -12,10 +13,10 @@
             <%= link_to image_tag(category.icon, style: 'width: 32px; height: 32px;', class: 'icon'),
               user_category_expenses_path(current_user, category) %>
           <% end %>
-          <span class="h4 link-underline-opacity-0"><%= link_to category.name,
-            user_category_expenses_path(current_user, category) %></span>
-          <span>$<%= category.total_expenses %></span>
-          <span><%= button_to "X", class:"btn btn-outline-danger" %></span>
+          <span class="h4 link-underline-opacity-0" style="font-family: proxima-nova, sans-serif; font-size: 1rem">
+            <%= link_to category.name, user_category_expenses_path(current_user, category) %></span>
+          <span style="font-family: proxima-nova, sans-serif; font-size: 1rem">$<%= category.total_expenses %></span>
+          
         </li>
       <% end %>
     </ul>

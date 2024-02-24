@@ -14,20 +14,71 @@
  *= require_self
  */
 
+@import "bootstrap";
+
+// @import "font-awesome";
+
+/* Button background color */
+$mynewcolor1:#5fb523;
+
+/* Navbar background color */
+$mynewcolor2:#3778c2;
+
+/* Secondary button background color */
+$mynewcolor3:#434b54;
+
+/* Container background color */
+$mynewcolor4:#ececec;
+
+.navbar {
+  background-color: #3778c2;
+}
+
+.button-bg {
+  background: #5fb523;
+}
+
+.button-bg:hover {
+  filter: brightness(92%);
+}
+
+.button-bg:active {
+  filter: brightness(82%);
+}
+
+.navbar-toggler-icon {
+  $navbar-light-color: white;
+  $navbar-light-toggler-border-color: white;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "proxima-nova", sans-serif;
+  font-family: "proxima-nova", sans-serif !important;
 }
 
 /* font-family: "ProximaNova-Light", sans-serif; */
 
-@import "bootstrap";
+.btn-primary {
+  background: #5fb523;
+}
+
+.btn-primary:hover {
+  filter: brightness(92%);
+}
+
+.btn-primary:active {
+  filter: brightness(82%);
+}
+
+.btn-secondary {
+  background: #434b54;
+}
 
 .icon {
-  width: 24px;
-  height: 24px;
+  width: 20px;
+  height: 20px;
   cursor: pointer;
 }
 
@@ -35,6 +86,22 @@ table {
   border-collapse: separate;
   border-spacing: 0 10px;
   margin-top: 15px;
+}
+
+#splash-cont {
+  background-color: #f8fcff !important;
+}
+
+.splash-row {
+  background-color: #f8fcff;
+}
+
+#back-arrow {
+  font-size: 2rem;
+  border: solid 1px gray;
+  border-radius: 4px;
+  margin: 2px 4px;
+  margin-left: 2%;
 }
 
 /* Mobile devices (portrait) */
@@ -45,11 +112,25 @@ table {
     box-sizing: border-box;
   }
 
-  .del-btn {
+  #del-btn {
     border: none;
     background-color: transparent;
     font-weight: 600;
     color: red;
+  }
+
+  #cat-index,
+  #exp-index,
+  #cat-new,
+  #exp-new {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
+  }
+
+  .navbar-toggler {
+    color: $navbar-light-color;
+    border-color: $navbar-light-toggler-border-color;
   }
 }
 
@@ -59,6 +140,20 @@ table {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  .navbar-toggler {
+    color: $navbar-light-color;
+    border-color: $navbar-light-toggler-border-color;
+  }
+
+  #cat-index,
+  #exp-index,
+  #cat-new,
+  #exp-new {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
   }
 }
 
