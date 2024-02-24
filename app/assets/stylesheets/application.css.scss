@@ -34,15 +34,16 @@ $mynewcolor4:#ececec;
   background-color: #3778c2;
 }
 
-@mixin button-bg($bg) {
-  background: $bg;
-  &:hover {
-    background:darken($bg,8%);
-    transition: all 0.3s ease;
-  }
-  &:active {
-    background:darken($bg,25%);
-  } 
+.button-bg {
+  background: #5fb523;
+}
+
+.button-bg:hover {
+  filter: brightness(92%);
+}
+
+.button-bg:active {
+  filter: brightness(82%);
 }
 
 .navbar-toggler-icon {
@@ -60,11 +61,19 @@ $mynewcolor4:#ececec;
 /* font-family: "ProximaNova-Light", sans-serif; */
 
 .btn-primary {
-  @include button-bg(#5fb523);
+  background: #5fb523;
+}
+
+.btn-primary:hover {
+  filter: brightness(92%);
+}
+
+.btn-primary:active {
+  filter: brightness(82%);
 }
 
 .btn-secondary {
-  @include button-bg(#434b54);
+  background: #434b54;
 }
 
 .icon {
