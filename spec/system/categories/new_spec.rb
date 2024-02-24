@@ -16,7 +16,6 @@ RSpec.describe 'Visit the New Category page', type: :system do
 
     # Check that the newly created category is displayed
     expect(page).to have_content("New Category")
-    # expect(page).to have_selector("img[src*='apple.png']") # Assuming the icon is displayed with an image
 
     # Verify that the total count of categories has increased by 1
     expect(Category.count).to eq(1)
