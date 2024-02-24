@@ -14,16 +14,16 @@
  *= require_self
  */
 
+ @import "bootstrap";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "proxima-nova", sans-serif;
+  font-family: "proxima-nova", sans-serif !important;
 }
 
 /* font-family: "ProximaNova-Light", sans-serif; */
-
-@import "bootstrap";
 
 .icon {
   width: 24px;
@@ -37,6 +37,14 @@ table {
   margin-top: 15px;
 }
 
+#splash-cont {
+  background-color: #f8fcff !important;
+}
+
+.splash-row {
+  background-color: #f8fcff;
+}
+
 /* Mobile devices (portrait) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   * {
@@ -45,11 +53,16 @@ table {
     box-sizing: border-box;
   }
 
-  .del-btn {
+  #del-btn {
     border: none;
     background-color: transparent;
     font-weight: 600;
     color: red;
+  }
+
+  .splash-img {
+    width: 250px;
+    height: 250px;
   }
 }
 
@@ -60,6 +73,11 @@ table {
     padding: 0;
     box-sizing: border-box;
   }
+
+  .splash-img {
+    width: 350px;
+    height: 350px;
+  }
 }
 
 /* Small screens, laptops */
@@ -68,6 +86,11 @@ table {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+  }
+
+  .splash-img {
+    width: 400px;
+    height: 400px;
   }
 
   #cat-index {

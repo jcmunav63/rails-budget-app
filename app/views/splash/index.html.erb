@@ -1,8 +1,13 @@
-<div class="container">
-  <div class="row">
+<div class="container" id="splash-cont">
+  <div class="row splash-row">
     <div class="col-md-6 offset-md-3">
-      <h1 class="text-center">Smart Budget App</h1>
-      <h5 class="text-center" style="margin-bottom: 200px">Manage your expenses wisely!</h5>
+      <h1 class="text-center fw-bold" style="font-family: proxima-nova, sans-serif;">Smart Budget App</h1>
+      <h5 class="text-center" style="margin-bottom: 30px; font-family: proxima-nova, sans-serif;">
+        Manage your expenses wisely!</h5>
+      <div class="col-md-6 offset-md-3 text-center" style="margin-bottom: 50px">
+        <img src="/assets/image2.png" class="img-fluid splash-img" alt="Prepare a budget">
+      </div>
+      <div></div>
       <p style="mr-3">
         <%= link_to "Log in", new_user_session_path, class: "btn btn-primary", style: "width: 100%" %>
       </p>
