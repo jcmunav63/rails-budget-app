@@ -4,7 +4,7 @@ RSpec.describe 'Visit Expenses index page', type: :system do
   include Rails.application.routes.url_helpers
 
   let(:user) { FactoryBot.create(:user) }
-  let(:category) { FactoryBot.create(:category, user: user) }
+  let(:category) { FactoryBot.create(:category, user:) }
 
   before do
     sign_in user

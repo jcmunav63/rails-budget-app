@@ -4,7 +4,7 @@ RSpec.describe '- visits the New Expense page', type: :system do
   include Rails.application.routes.url_helpers
 
   let(:user) { FactoryBot.create(:user) }
-  let(:category) { FactoryBot.create(:category, user: user) }
+  let(:category) { FactoryBot.create(:category, user:) }
 
   before do
     sign_in user
@@ -22,7 +22,7 @@ RSpec.describe '- visits the New Expense page', type: :system do
       expect(page).to have_current_path(user_category_expenses_path(user, category))
 
       # Check that the newly created expense is displayed
-      expect(page).to have_content("Test Expense")
+      expect(page).to have_content('Test Expense')
 
       # Verify that the total count of categories has increased by 1
       expect(Expense.count).to eq(1)

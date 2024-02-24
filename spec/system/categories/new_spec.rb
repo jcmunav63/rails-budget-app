@@ -15,7 +15,7 @@ RSpec.describe 'Visit the New Category page', type: :system do
     expect(page).to have_current_path(user_categories_path(user))
 
     # Check that the newly created category is displayed
-    expect(page).to have_content("New Category")
+    expect(page).to have_content('New Category')
 
     # Verify that the total count of categories has increased by 1
     expect(Category.count).to eq(1)
