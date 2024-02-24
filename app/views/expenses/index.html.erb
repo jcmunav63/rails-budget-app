@@ -1,8 +1,10 @@
 <div class="container-fluid h-100">
   <%= render partial: 'shared/navbar' %>
   <%= render partial: 'shared/back_button' %>
-  <h2 style="text-align: center;">Expenses for: <%= @category.name %></h2>
-  <h4 style="text-align: center;">Total Expenses: <%= number_to_currency(@category.total_expenses, precision: 2)%></h4>
+  <h3 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif;">
+    Expenses for: <%= @category.name %></h3>
+  <h4 class="fw-bold" style="text-align: left; font-family: proxima-nova, sans-serif; margin-bottom: 15px;">
+    Total Expenses: <%= number_to_currency(@category.total_expenses, precision: 2)%></h4>
   <div class="container">
     <table class="table">
       <thead>
@@ -23,7 +25,7 @@
 
     <% if can? :create, Expense %>
       <%= link_to "Add Expense", new_user_category_expense_path(current_user, @category), class: "btn btn-primary",
-      style: "width: 100%" %>
+      style: "width: 100%; margin-top: 90px;" %>
     <% end %>
   </div>
 </div>

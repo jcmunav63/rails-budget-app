@@ -1,5 +1,16 @@
 <% unless current_page?('/') %>
-  <a href="javascript:history.back()" class="btn btn-outline-dark me-2"
+  <% if current_page?(new_user_category_path) %>
+    redirect_to user_categories_path(current_user)
+  <% else %>
+    <% if current_page?(user_category_expenses_path)%>
+      redirect_to user_categories_path(current_user)
+    <% else %>
+      <% if current_page?(new_user_category_expense_path)%>
+        redirect_to user_category_expenses_path(current_user, @category)
+      <% end %>
+    <% end %>
+  <% end %>
+  <%# <a href="javascript:history.back()" class="btn btn-outline-dark me-2"
     style="font-size: 1.5rem; margin-left: 5%; margin-bottom: 25px; padding: 0 6px 2px 6px;"><strong><</strong>
-  </a>
+  </a> %>
 <% end %>

@@ -13,9 +13,9 @@
             <%= link_to image_tag(category.icon, style: 'width: 32px; height: 32px;', class: 'icon'),
               user_category_expenses_path(current_user, category) %>
           <% end %>
-          <span class="h4 link-underline-opacity-0" style="font-family: proxima-nova, sans-serif;">
+          <span class="h4 link-underline-opacity-0" style="font-family: proxima-nova, sans-serif; font-size: 1rem">
             <%= link_to category.name, user_category_expenses_path(current_user, category) %></span>
-          <span style="font-family: proxima-nova, sans-serif;">$<%= category.total_expenses %></span>
+          <span style="font-family: proxima-nova, sans-serif; font-size: 1rem">$<%= category.total_expenses %></span>
           <span><%= button_to "X", type: "button", style: "border: none; color: red; backgroun-color: transparent;",
             id: "del-btn" %></span>
         </li>

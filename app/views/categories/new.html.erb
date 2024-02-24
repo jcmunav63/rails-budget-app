@@ -2,6 +2,8 @@
   <%= render partial: 'shared/navbar' %>
   <%= render partial: 'shared/back_button' %>
   <div>
+    <h2 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif;
+      margin-bottom: 30px;">New Category</h2>
     <%= form_with(model: [@user, @category], url: user_categories_path(current_user)) do |form| %>
       <table>
         <tr>
@@ -20,7 +22,7 @@
       <% if can? :create, Category %>
         <div>
           <strong>
-            <%= form.submit "Add Category", class: "btn btn-primary", style: "width: 100%" %>
+            <%= form.submit "Add Category", class: "btn btn-primary", style: "width: 100%; margin-top: 140px;" %>
           </strong>
         </div>
       <% end %>
