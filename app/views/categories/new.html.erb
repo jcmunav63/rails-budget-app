@@ -17,11 +17,13 @@
           <td><%= form.text_field :total_expenses, class: "numeric-field", value: "0" %></td>
         </tr>
       </table>
-      <div>
-        <strong>
-          <%= form.submit "Add Category", class: "btn btn-primary", style: "width: 100%" %>
-        </strong>
-      </div>
+      <% if can? :create, Category %>
+        <div>
+          <strong>
+            <%= form.submit "Add Category", class: "btn btn-primary", style: "width: 100%" %>
+          </strong>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
