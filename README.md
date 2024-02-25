@@ -163,6 +163,8 @@ https://www.loom.com/share/5a2c26a3e52143e7a6dc90f6a8ccf463
 ## 🔭 Future Features <a name="future-features"></a>
 
 - **Add functionalities for deleting categories and expenses.**
+- **Add other options, like managing the assigned budget by period (week, month).**
+- **Add payment options.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
