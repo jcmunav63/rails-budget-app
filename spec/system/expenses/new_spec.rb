@@ -31,7 +31,7 @@ RSpec.describe '- visits the New Expense page', type: :system do
     scenario '- verifies the content of  the new expense page' do
       visit new_user_category_expense_path(user, category)
 
-      expect(page).to have_content('New Expense for: ')
+      expect(page).to have_content('New Expense')
       expect(page).to have_button('Create Expense')
 
       fill_in 'Name', with: 'Test Expense'

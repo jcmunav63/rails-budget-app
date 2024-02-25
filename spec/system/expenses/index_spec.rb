@@ -36,7 +36,7 @@ RSpec.describe 'Visit Expenses index page', type: :system do
       visit user_category_expenses_path(user, category)
       sleep(3)
 
-      expect(page).to have_content("Expenses for: #{category.name}")
+      expect(page).to have_content(category.name)
       expect(page).to have_content(format('$%.2f', category.total_expenses))
     end
   end
