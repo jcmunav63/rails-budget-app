@@ -1,31 +1,55 @@
 <div id="cat-new" class="container-fluid col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 h-100;">
-  <%= render partial: 'shared/navbar' %>
-  <%= render partial: 'shared/back_button' %>
-  <div>
-    <h2 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif;
-      margin-bottom: 30px;">New Category</h2>
-    <%= form_with(model: [@user, @category], url: user_categories_path(current_user)) do |form| %>
-      <table style="margin-left:1rem">
-        <tr>
-          <td style="width: 20%;"><%= form.label :name, class: "label" %></td>
-          <td style="width: 80%;"><%= form.text_field :name, class: "text-field" %></td>
-        </tr>
-        <tr>
-          <td style="width: 20%;"><%= form.label :icon, class: "label" %></td>
-          <td><%= form.select :icon, options_for_select(@icon_options), {}, id: "icon", class: "form-control" %></td>
-        </tr>
-        <tr style="display: none;">
-          <td style="width: 20%;"><%= form.label :total_expenses, class: "number" %></td>
-          <td><%= form.text_field :total_expenses, class: "numeric-field", value: "0" %></td>
-        </tr>
-      </table>
-      <% if can? :create, Category %>
-        <div style="position: absolute; bottom: 0;">
-          <strong>
-            <%= form.submit "Add Category", class: "btn btn-primary", style: "width: 100%; margin-top: 140px;" %>
-          </strong>
-        </div>
+  <div style="background-color: #3778c2; height: 25px; border: 1px solid #3778c2;"></div>
+  <div style="background-color: #3778c2; border: 1px solid #3778c2;">
+    <% unless current_page?('/') %>
+      <% if current_page?(new_user_category_path) %>
+        <%= link_to image_tag("left-arrow.png", style:"width: 8%; color: white;"),
+          user_categories_path(current_user), class: 'link-light link-offset-1-hover
+          link-underline link-underline-opacity-0 link-underline-opacity-75-hover' %>
+      <% else %>
+        <% if current_page?(user_category_expenses_path)%>
+          <%= link_to image_tag("left-arrow.png", style:"width: 8%; color: white;"),
+            user_categories_path(current_user), class: 'fw-bold text-white link-offset-1-hover
+            link-underline link-underline-opacity-0 link-underline-opacity-75-hover' %>
+        <% else %>
+          <% if current_page?(new_user_category_expense_path)%>
+            <%= link_to image_tag("left-arrow.png", style:"width: 8%; color: white;"),
+            user_category_expenses_path(current_user, @category), class: 'fw-bold text-white
+            link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover' %>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
+    <span class="text-white fw-bold" style="margin-left: 27%; padding-bottom: 6px;
+      font-size: 0.8rem;">NEW CATEGORY</span>
   </div>
+  <%# <div> %>
+    <div style="background-color: white;">
+      <%= form_with(model: [@user, @category], url: user_categories_path(current_user)) do |form| %>
+        <table style="width: 100%;">
+          <tr>
+            <td style="width: 0%;"><% form.label :name, class: "label" %></td>
+            <td><%= form.text_field :name, class: "text-field", placeholder: "Name",
+              style: "border: none; width: 100%; padding: 0 3px 6px 3px; color: #949494;" %></td>
+          </tr>
+          <%# <hr style="border-bottom: 1px solid #cccccc; margin: 2px 0 2px 6px;"> %>
+          <tr>
+            <td style="width: 0%;"><% form.label :icon, class: "label" %></td>
+            <td><%= form.select :icon, options_for_select(@icon_options), {include_blank: "Select icon option"},
+              id: "icon", class: "form-control", style:"width: 100%; padding: 6px 3px 0 3px; color: #949494;" %></td>
+          </tr>
+          <tr style="display: none;">
+            <td style="width: 0%;"><% form.label :total_expenses, class: "number" %></td>
+            <td><%= form.text_field :total_expenses, class: "numeric-field", value: "0" %></td>
+          </tr>
+        </table>
+        <% if can? :create, Category %>
+          <div style="width: 100%; background-color: #5fb523; position: absolute; bottom: 0;">
+            <%= form.submit "Add Category", class: "btn btn-primary", style: "width: 94%;
+              background-color: transparent; border: 1px solid white; margin: 3%; padding: 8px; color: white;" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  <%# </div> %>
 </div>
