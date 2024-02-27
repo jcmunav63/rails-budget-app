@@ -1,20 +1,25 @@
-<div class="container" id="splash-cont">
+<div class="container" id="splash-cont" style="height: 100vh;">
   <div class="row splash-row">
     <div class="col-md-6 offset-md-3">
       <h1 class="text-center fw-bold" style="font-family: proxima-nova, sans-serif; margin-top: 15px;">
         Smart Budget App</h1>
       <h5 class="text-center" style="margin-bottom: 30px; font-family: proxima-nova, sans-serif;">
         Manage your expenses wisely!</h5>
-      <div class="col-md-6 offset-md-3 text-center" style="margin-bottom: 50px">
-        <img src="/assets/image2.png" class="img-fluid splash-img" alt="Prepare a budget">
+      <div class="col-md-6 offset-md-3 text-center">
+        <img src="/assets/image2.png" style="width:200px; height:200px" alt="Prepare a budget">
       </div>
-      <div></div>
-      <p style="mr-3">
-        <%= link_to "Log in", new_user_session_path, class: "btn btn-primary", style: "width: 100%" %>
-      </p>
-      <p style="ml-3">
-        <%= link_to "Sign up", new_user_registration_path, class: "btn btn-secondary", style: "width: 100%" %>
-      </p>
+      <div style="position: absolute; bottom: 0; width: 100%;">
+        <p style="width: 100%; margin: 0;">
+          <%= link_to "LOG IN", new_user_session_path, class: "btn btn-primary fw-bold",
+            style: "width: 100%; background-color: #3778c2; border-radius: 2px;
+            font-size: 0.8rem; font-family: 'ProximaNova-Light', sans-serif; padding: 4px 0;" %>
+        </p>
+        <p style="width: 100%; margin: 0;">
+          <%= link_to "SIGN UP", new_user_registration_path, class: "btn btn-secondary fw-bold",
+            style: "width: 100%; background-color: transparent; color: gray; font-size: 0.8rem;
+            border: none; font-family: 'ProximaNova-Light', sans-serif; padding: 4px 0;" %>
+        </p>
+      </div>
     </div>
   </div>
 </div>

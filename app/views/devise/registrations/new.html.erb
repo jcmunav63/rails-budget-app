@@ -1,37 +1,47 @@
-<h2 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif;
-  margin-top: 15px; margin-bottom: 50px;">Sign up</h2>
-
-<div style="margin-left:10%; margin-right:10%; width: auto;">
+<div style="width: 100%;">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <div style="background-color: #3778c2; height: 25px;">
+    </div>
+    <div style="background-color: #3778c2; height: 40px; width: 100%; display:flex;
+      justify-content: space-between; padding: 5px; margin-bottom: 8px;">
+      <a href="/" class="link-light fw-bold link-offset-1 link-underline-opacity-0"
+        style="padding: 0, 0, 0, 4px; font-size: 1.5rem; !important;
+        vertical-align: top; !important; cursor: pointer;">&#11104;</a>
+      <span class="text-white fw-bold" style="font-family: 'ProximaNova-Light', sans-serif; !important;
+        font-size: 0.8rem; !important; margin-top:6px;">REGISTER</span>
+      <%= f.submit "Next", style: "color: white; background-color: transparent;
+        border: none; padding-right: 4px; font-size: 0.8rem; !important; margin-top: 5px; cursor: pointer;" %>
+    </div>
     <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="field">
-      <%= f.label :full_name %>
-      <%= f.text_field :name, autofocus: true, autocomplete: "full name" %>
-    </div><br />
+    <div style="background-color: white; margin-top: 12px;">
+      <div style="display: flex; margin-bottom: 10px;">
+        <%= image_tag("user1.png", style: "width: 10%; margin-left: 6px;") %>
+        <span style="color: #434b54; margin-left: 1rem; padding-top: 5px;">Upload picture</span>
+      </div>
+      <hr style="border-bottom: 1px solid #cccccc; margin: 2px 0 2px 6px;">
+      <div class="field">
+        <% f.label :full_name %>
+        <%= f.text_field :name, id: "newreg-name", placeholder: "Full name",
+          style: "border: none; width: 100%; padding: 6px; color: #434b54;" %>
+      </div>
+      <hr style="border-bottom: 1px solid #cccccc; margin: 2px 0 2px 6px;">
+      <div class="field">
+        <% f.label :email %>
+        <%= f.email_field :email, id: "newreg-email", placeholder: "Email",
+          style: "border: none; width: 100%; padding: 6px; color: #434b54;" %>
+      </div>
+      <hr style="border-bottom: 1px solid #cccccc; margin: 2px 0 2px 6px;">
+      <div class="field">
+        <% f.label :password %>
+        <%= f.password_field :password, id: "newreg-pass", placeholder: "Password",
+          style: "border: none; width: 100%; padding: 6px; color: #434b54;" %>
+      </div>
 
-    <div class="field">
-      <%= f.label :email %>
-      <%= f.email_field :email, autocomplete: "email" %>
-    </div><br />
-
-    <div class="field">
-      <%= f.label :password %>
-      <% if @minimum_password_length %>
-      <small><em>(<%= @minimum_password_length %> characters minimum)</em></small>
-      <% end %>
-      <%= f.password_field :password, autocomplete: "new-password" %>
-    </div><br />
-
-    <div class="field">
-      <%= f.label :password_confirmation %>
-      <%= f.password_field :password_confirmation, autocomplete: "re-enter new-password" %>
-    </div><br />
-
-    <div class="actions">
-      <%= f.submit "Sign up", class: "btn btn-primary", style: "width: 100%" %>
-    </div><br />
+      <div class="field" style="display: none;">
+        <% f.label :role %>
+        <% f.text_field :role, value: "default", style: "border: none; width: 100%; padding: 6px;" %>
+      </div>
+    </div>
   <% end %>
-
-  <%= render "devise/shared/links" %>
 </div>

@@ -1,36 +1,33 @@
-<div style="background-color: #3778c2; height: 40px;">
-</div>
-<div style="background-color: #3778c2; height: 40px; width: 100%; display:flex;
-  justify-content: space-between; padding: 5px; margin-bottom: 8px;">
-  <a href="/" class="link-light fw-bold link-offset-1 link-underline-opacity-0">&#8592;</a>
-  <span class="text-white fw-bold">LOGIN</span>
-  <%= link_to "Log In", session_path(resource_name), id: "submit-login", class: "link-light
-    fw-bold link-offset-1 link-underline-opacity-0" %>
-</div>
-  <%# <h2 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif;
-    margin-top: 15px; margin-bottom: 50px;">Log in</h2> %>
-
-
 <div style="width: 100%;">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="field">
-      <% f.label :email %>
-      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email",
-        style: "border: 1px solid #949494; width: 100%; padding: 6px;" %>
+    <div style="background-color: #3778c2; height: 25px;">
+    </div>
+    <div style="background-color: #3778c2; height: 40px; width: 100%; display:flex;
+      justify-content: space-between; padding: 5px; margin-bottom: 8px; font-family: \'ProximaNova-Light\', sans-serif;">
+      <a href="/" class="link-light fw-bold link-offset-1 link-underline-opacity-0"
+        style="padding: 0, 0, 0, 4px; font-size: 1.5rem; !important;
+        vertical-align: top; !important; cursor: pointer;">&#11104;</a>
+      <span class="text-white fw-bold" style="font-family: 'ProximaNova-Light', sans-serif; !important;
+      font-size: 0.8rem; !important; margin-top:6px;">LOGIN</span>
+      <%= f.submit "Log In", style: "color: white; background-color: transparent;
+        border: none; padding-right: 4px; font-size: 0.8rem; !important; margin-top: 5px; cursor: pointer;" %>
+    </div>
+    <div>
+
+    <div style="background-color: white; margin-top: 12px;">
+      <div class="field">
+        <% f.label :email %>
+        <%= f.email_field :email, placeholder: "Email",
+          style: "border: none; width: 100%; padding: 6px;" %>
+      </div>
+      <hr style="border-bottom: 1px solid #cccccc; margin: 2px 0 2px 6px;">
+      <div class="field">
+        <% f.label :password %>
+        <%= f.password_field :password, placeholder: "Password",
+          style: "border: none; width: 100%; padding: 6px;" %>
+      </div>
     </div><br />
 
-    <div class="field">
-      <% f.label :password %>
-      <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password",
-        style: "border: 1px solid #949494; width: 100%; padding: 6px;" %>
-    </div><br />
-
-    <div><p style="color: #949494; text-align: center">Forgot password?</p></div>
-
-    <%# <div class="actions"> %>
-      <%# <%= f.submit "Log in", class: "btn btn-primary", style: "width: 100%" %>
-    <%# </div><br /> %>
+    <div><p style="color: #cccccc; text-align: center">Forgot password?</p></div>
   <% end %>
-
-  <%# <%= render "devise/shared/links" %>
 </div>

@@ -22,7 +22,7 @@
     </ul>
   </div>
   <% if can? :create, Category %>
-    <p style="mr-3">
+    <p style="mr-3 position: absolute; bottom: 0;">
       <strong>
         <%= link_to "New category", new_user_category_path(current_user), class: "btn btn-primary",
           style: "width: 100%" %>
