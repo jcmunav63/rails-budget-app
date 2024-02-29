@@ -30,6 +30,14 @@ $mynewcolor4:#ececec;
 
 $mynewcolor5:#949494;
 
+.proxima-nova {
+  font-family: 'proxima-nova', sans-serif;
+}
+
+.proxima-nova-light {
+  font-family: 'ProximaNova-Light', sans-serif;
+}
+
 .navbar {
   background-color: #3778c2;
 }
@@ -83,7 +91,7 @@ $mynewcolor5:#949494;
 table {
   border-collapse: separate;
   border-spacing: 0 10px;
-  margin-top: 15px;
+  margin-top: 8px;
 }
 
 #splash-cont {
@@ -104,6 +112,11 @@ table {
 
 input::placeholder {
   color: #cccccc;
+}
+
+.form-control::placeholder {
+  color: #cccccc;
+  font-size: 1rem;
 }
 
 /* Mobile devices (portrait) */

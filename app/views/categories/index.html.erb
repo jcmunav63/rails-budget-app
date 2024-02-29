@@ -1,32 +1,41 @@
 <div id="cat-index" class="container-fluid col-sm-12 col-md-6 offset-md-3 col-lg-8 offset-lg-2 h-100">
   <%= render partial: 'shared/navbar' %>
-  <h1 class="fw-bold" style="text-align: center; font-family: proxima-nova, sans-serif;
-    margin-top: 15px; margin-bottom: 25px;">Categories Index</h1>
-  <div class="mx-2 h-80" style="width: auto; margin-bottom: 150px;">
+  <div style="background-color: #3778c2; border: 1px solid #3778c2;">
+    <span class="text-white fw-bold" style="margin-left: 32%; padding-bottom: 6px;
+      font-size: 0.8rem;">CATEGORIES</span>
+  </div>
+  <div class="mx-2 h-80" style="width: auto; margin: 15px 0 15px 0;
+    max-height: 480px; overflow-y: scroll;">
     <ul class="list-unstyled" style="width: 100%;">
       <% @categories.each do |category| %>
-        <li class="bg-white my-2" style="display: flex; justify-content: space-between;">
-          <% if category.icon.nil? %>
-            <%= link_to image_tag('icons/default_logo.png', style: 'width: 32px; height: 32px;', class: 'icon'),
-              user_category_expenses_path(current_user, category) %>
-          <% else %>
-            <%= link_to image_tag(category.icon, style: 'width: 32px; height: 32px;', class: 'icon'),
-              user_category_expenses_path(current_user, category) %>
-          <% end %>
-          <span class="h4 link-underline-opacity-0" style="font-family: proxima-nova, sans-serif; font-size: 1rem">
-            <%= link_to category.name, user_category_expenses_path(current_user, category) %></span>
-          <span style="font-family: proxima-nova, sans-serif; font-size: 1rem">$<%= category.total_expenses %></span>
-          
+        <li class="bg-white my-2" style="display: flex;">
+          <div style="width: 20%;">
+            <% if category.icon.nil? %>
+              <%= link_to image_tag('icons/default_logo.png', style: 'width: 32px; height: 32px;', class: 'icon'),
+                user_category_expenses_path(current_user, category) %>
+            <% else %>
+              <%= link_to image_tag(category.icon, style: 'width: 32px; height: 32px;', class: 'icon'),
+                user_category_expenses_path(current_user, category) %>
+            <% end %>
+          </div>
+          <div style="width: 55%; margin-left: 5px;">
+            <span><%= link_to category.name, user_category_expenses_path(current_user, category),
+              class: "proxima-nova link-secondary link-underline-opacity-0", style: "font-size: 0.9rem;" %>
+              </span>
+          </div>
+          <div style="width: 25%;">
+            <%= number_to_currency(category.total_expenses, class:"fw-bold proxima-nova",
+              style: "font-size: 0.9rem; color: #949494; position: relative; rigth: 5px;") %>
+          </div>
         </li>
       <% end %>
     </ul>
   </div>
   <% if can? :create, Category %>
-    <p style="mr-3 position: absolute; bottom: 0;">
-      <strong>
-        <%= link_to "New category", new_user_category_path(current_user), class: "btn btn-primary",
-          style: "width: 100%" %>
-      </strong>
-    </p>
+    <div style="width: 100%; background-color: #5fb523; position: absolute; bottom: 0;">
+      <%= link_to "NEW CATEGORY", new_user_category_path(current_user), class:
+        "btn btn-primary", style: "background-color: transparent; border: 1px solid white;
+        width:94%; margin: 3%; padding: 8px; color: white;" %>
+    </div>
   <% end %>
 </div>

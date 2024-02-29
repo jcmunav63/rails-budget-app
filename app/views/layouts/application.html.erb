@@ -14,9 +14,10 @@
   </head>
 
   <body class="bg-light">
-    <div style="margin-left: 10%; font-size: 0.8rem; font-weight: 500;">
+    <div style="margin-left: 10%; font-size: 0.8rem; font-weight: 500; position: fixed;
+      top: 5px; left: 5px;">
       <% flash.each do |key, value| %>
-        <div class="flash <%= key %>">
+        <div class="flash <%= key %>", style="color: white;">
           <%= value %>
         </div>
       <% end %>

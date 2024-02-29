@@ -1,44 +1,43 @@
 <div id="exp-index" class="container-fluid col-sm-12 h-100" style="padding: 0; margin: 0;">
-  <div style="background-color: #3778c2; height: 25px; border: 1px solid #3778c2;"></div>
+  <%= render partial: 'shared/navbar' %>
   <div style="background-color: #3778c2; border: 1px solid #3778c2;">
     <% unless current_page?('/') %>
       <% if current_page?(new_user_category_path) %>
-        <%= link_to image_tag("left-arrow.png", style:"width: 8%; color: white;"),
-          user_categories_path(current_user), class: 'link-light link-offset-1-hover
-          link-underline link-underline-opacity-0 link-underline-opacity-75-hover' %>
+        <%= link_to image_tag("left-arrow-white.png", style:"width: 7%; color: white; margin-left: 15px;
+          padding-bottom: 3px;"), user_categories_path(current_user), class: 'link-light link-offset-1-hover
+          link-underline link-underline-opacity-0 link-underline-opacity-75-hover ml-2' %>
       <% else %>
         <% if current_page?(user_category_expenses_path)%>
-          <%= link_to image_tag("left-arrow.png", style:"width: 8%; color: white;"),
-            user_categories_path(current_user), class: 'fw-bold text-white link-offset-1-hover
-            link-underline link-underline-opacity-0 link-underline-opacity-75-hover' %>
+          <%= link_to image_tag("left-arrow-white.png", style:"width: 7%; color: white; margin-left: 15px;
+            padding-bottom: 3px;"), user_categories_path(current_user), class: 'fw-bold text-white 
+            link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover' %>
         <% else %>
           <% if current_page?(new_user_category_expense_path)%>
-            <%= link_to image_tag("left-arrow.png", style:"width: 8%; color: white;"),
-            user_category_expenses_path(current_user, @category), class: 'fw-bold text-white
-            link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover' %>
+            <%= link_to image_tag("left-arrow-white.png", style:"width: 7%; color: white; margin-left: 15px;
+              padding-bottom: 3px;"), user_category_expenses_path(current_user, @category), class: 'fw-bold
+              text-white link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover
+              ml-2' %>
           <% end %>
         <% end %>
       <% end %>
     <% end %>
-    <span class="text-white fw-bold" style="margin-left: 27%; padding-bottom: 6px;
-      font-size: 0.8rem;">DETAILS</span>
+    <span class="text-white fw-bold" style="margin-left: 23%; padding-bottom: 6px;
+      font-size: 0.8rem;">TRANSACTIONS</span>
   </div>
   <div style="width:96%; margin-left:2%;">
-    <div style="margin-top: 2rem;">
+    <div style="margin-top: 1rem;">
       <%= link_to image_tag(@category.icon, style: 'width: 32px; height: 32px; margin-left: 12px;',
         class: 'icon'), user_category_expenses_path(current_user, @category) %>
-      <%# <% image_url(@category.icon, style: 'width: 32px; height: 32px;', class: 'icon') %>
       <span style="font-family: proxima-nova, sans-serif; color: #949494; margin-left: 17%; font-weight:600;">
         <%= @category.name %></span>
     </div>
-  
     <h4 style="text-align: center; font-family: proxima-nova, sans-serif; font-size:0.9rem;
-      margin-bottom: 15px; color: #949494;">
+      margin-bottom: 8px; color: #949494;">
       Total Expenses: <%= number_to_currency(@category.total_expenses, precision: 2)%></h4>
-    <div class="container2">
+    <div class="container2" style="max-height: 450px; overflow-y: scroll;">
       <table class="table">
         <thead>
-          <tr class="bg-white fw-bold" style="font-size:0.8rem; color: #cccccc; !important;
+          <tr class="bg-white fw-bold" style="font-size:0.9rem; color: #cccccc; !important;
             font-family:proxima-nova, sans-serif;">
             <th style="color: #949494;">Name</th>
             <th style="color: #949494;">Amount</th>
@@ -46,8 +45,9 @@
         </thead>
         <tbody>
           <% @expenses.each do |expense| %>
-            <tr class="bg-white my-1" style="font-size:0.8rem; color: #949494; !important;">
-              <td style="color: #949494;"><%= expense.name %></td>
+            <tr class="bg-white my-1" style="font-size:0.9rem; color: #949494; !important;">
+              <td style="color: #949494;"><%= expense.name %><br />
+                <%= expense.created_at.strftime('%d %b %Y') %></td>
               <td style="color: #949494;"><%= number_to_currency(expense.amount, precision: 2) %></td>
             </tr>
           <% end %>
@@ -55,13 +55,11 @@
       </table>
     </div>
   </div>
-  
-
   <% if can? :create, Expense %>
     <div style="width: 100%; background-color: #5fb523; position: absolute; bottom: 0;">
       <%= link_to "SCAN", new_user_category_expense_path(current_user, @category), class:
         "btn btn-primary", style: "background-color: transparent; border: 1px solid white;
-        width:94%; margin: 3% 3% 3% 3%; padding: 8px; color: white;" %>
+        width:94%; margin: 3%; padding: 8px; color: white;" %>
     </div>
   <% end %>
 </div>

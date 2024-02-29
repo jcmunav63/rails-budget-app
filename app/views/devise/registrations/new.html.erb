@@ -37,11 +37,10 @@
         <%= f.password_field :password, id: "newreg-pass", placeholder: "Password",
           style: "border: none; width: 100%; padding: 6px; color: #434b54;" %>
       </div>
-
-      <div class="field" style="display: none;">
-        <% f.label :role %>
-        <% f.text_field :role, value: "default", style: "border: none; width: 100%; padding: 6px;" %>
-      </div>
+      <%# <div class="field" style="display: none;"> %>
+        <%# <%= f.label :role %>
+        <%# <%= f.hidden_field :role, value: "default" %>
+      <%# </div> %>
     </div>
   <% end %>
 </div>
