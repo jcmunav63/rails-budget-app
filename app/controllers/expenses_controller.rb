@@ -19,47 +19,39 @@ class ExpensesController < ApplicationController
   def new
     @category = Category.find(params[:category_id])
     @categories = current_user.categories.where.not(id: @category.id)
+    @expense = Expense.new
 
-    @expense = @category.expenses.build
+    puts @category.inspect
+    puts @categories.inspect
+    puts @expense.inspect
   end
 
   def create
     @category = Category.find(params[:category_id])
+    puts @category.inspect
+    selected_category_ids = params[:expense][:categories].reject(&:empty?).map(&:to_i)
 
-    selected_category_ids = params[:expense][:categories].reject(&:blank?).map(&:to_i)
-    total_categories = selected_category_ids.count + 1
-    total_amount = params[:expense][:amount].to_f
+    total_categories = selected_category_ids.length + 1
+    category_expense_amount = params[:expense][:amount].to_f / total_categories
+    selected_category_ids = [category.id] + selected_category_ids
 
-    if total_categories > 1
-      # Calculate the amount for each category
-      amount_per_category = total_amount / total_categories
-    else
-      amount_per_category = total_amount
-    end
+    selected_category_ids.each do |category_id|
+      expense = Expense.new(expense_params)
+      expense.author_id = current_user.id
+      expense.amount = category_expense_amount
 
-    ActiveRecord::Base.transaction do
-      [category.id] + selected_category_ids.each do |category_id|
-        # Create expense for each category
-        expense = Expense.create(
-          name: params[:expense][:name],
-          amount: amount_per_category,
-          author_id: current_user.id
-        )
-        
-        # Create CategoryExpense record
-        CategoryExpense.create(
-          category_id: category_id,
-          expense_id: expense.id,
-          amount: amount_per_category
-        )
-        
-        # Update the total_expenses for each category
-        Category.find(category_id).update(total_expenses: Category.find(category_id).total_expenses + amount_per_category)
+      CategoryExpense.transaction do
+        expense.save!
+        CategoryExpense.create!(category_id: category_id, expense_id: expense.id)
+
+        category = Category.find(category_id)
+        category.update!(total_expenses: category.total_expenses + category_expense_amount)
       end
     end
-    redirect_to user_category_expenses_path(current_user, @category), notice: 'One or more expenses were created
-      successfully.'
-  rescue
+  
+    flash[:notice] = 'Expenses were successfully created.'
+    redirect_to user_category_expenses_path(current_user, @category)
+  rescue StandardError => e
     flash[:alert] = "Error creating expenses: #{e.message}"
     render :new
   end
