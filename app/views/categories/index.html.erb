@@ -18,14 +18,14 @@
                 user_category_expenses_path(current_user, category) %>
             <% end %>
           </div>
-          <div style="width: 55%; margin-left: 5px;">
+          <div style="width: 55%;">
             <span><%= link_to category.name, user_category_expenses_path(current_user, category),
               class: "proxima-nova link-secondary", style: "font-size: 0.9rem;" %>
               </span>
           </div>
-          <div style="width: 25%;">
-            <%= number_to_currency(category.total_expenses, class:"fw-bold proxima-nova",
-              style: "font-size: 0.9rem; color: #949494; position: relative; rigth: 5px;") %>
+          <div style="width: 25%; display:flex; justify-content: end;">
+            <%= number_to_currency(category.total_expenses, class:"proxima-nova",
+              style: "font-size: 0.8rem; !important; color: #cccccc; !important;") %>
           </div>
         </li>
       <% end %>
