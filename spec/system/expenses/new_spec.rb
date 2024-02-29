@@ -16,7 +16,7 @@ RSpec.describe '- visits the New Expense page', type: :system do
 
       fill_in 'Name', with: 'Test Expense'
       fill_in 'Amount', with: 10.5
-      click_button 'Create Expense'
+      click_button 'SAVE EXPENSE'
 
       # Expect to be redirected to the Expenses Index page
       expect(page).to have_current_path(user_category_expenses_path(user, category))
@@ -31,14 +31,14 @@ RSpec.describe '- visits the New Expense page', type: :system do
     scenario '- verifies the content of  the new expense page' do
       visit new_user_category_expense_path(user, category)
 
-      expect(page).to have_content('New Expense')
-      expect(page).to have_button('Create Expense')
+      expect(page).to have_content('NEW TRANSACTION')
+      expect(page).to have_button('SAVE EXPENSE')
 
       fill_in 'Name', with: 'Test Expense'
       fill_in 'Amount', with: 10.5
-      click_button 'Create Expense'
+      click_button 'SAVE EXPENSE'
 
-      expect(page).to have_content('Add Expense')
+      expect(page).to have_content('Category: ')
     end
   end
 end

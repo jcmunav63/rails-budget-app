@@ -7,8 +7,8 @@ RSpec.describe 'Splash screen', type: :request do
     it 'renders the splash screen' do
       get root_path
       expect(response.body).to include('Smart Budget App')
-      expect(response.body).to include('Log in')
-      expect(response.body).to include('Sign up')
+      expect(response.body).to include('LOG IN')
+      expect(response.body).to include('SIGN UP')
     end
 
     it 'renders the splash screen' do

@@ -20,12 +20,12 @@
           </div>
           <div style="width: 55%;">
             <span><%= link_to category.name, user_category_expenses_path(current_user, category),
-              class: "proxima-nova link-secondary", style: "font-size: 0.9rem;" %>
-              </span>
+              class: "proxima-nova link-secondary link-underline-opacity-0 link-underline-opacity-75-hover",
+              style: "font-size: 0.9rem;" %></span>
           </div>
-          <div style="width: 25%; display:flex; justify-content: end;">
-            <%= number_to_currency(category.total_expenses, class:"proxima-nova",
-              style: "font-size: 0.8rem; !important; color: #cccccc; !important;") %>
+          <div style="width: 25%; display:flex; justify-content: end; color: #949494;
+            font-size: 0.8rem; font-weight: 600;">
+            <%= number_to_currency(category.total_expenses, class:"proxima-nova") %>
           </div>
         </li>
       <% end %>

@@ -28,7 +28,7 @@ RSpec.describe 'Categories', type: :request do
                       user_id: user.id)
       sign_in user
       get user_categories_path(user)
-      expect(response.body).to include('Categories Index')
+      expect(response.body).to include('CATEGORIES')
     end
 
     it 'displays each category with its icon, name, and total expenses' do
@@ -59,7 +59,7 @@ RSpec.describe 'Categories', type: :request do
                       user_id: user.id)
       sign_in user
       get user_categories_path(user)
-      expect(response.body).to include('New category')
+      expect(response.body).to include('NEW CATEGORY')
     end
   end
 end

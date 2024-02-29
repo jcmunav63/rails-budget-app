@@ -9,7 +9,7 @@ RSpec.describe 'Visit Categories index page', type: :system do
     login_as(user, scope: :user)
     visit user_categories_path(user)
 
-    expect(page).to have_content('Categories Index')
+    expect(page).to have_content('CATEGORIES')
   end
 
   scenario 'Visit categories index page - finds two button\'s links' do
