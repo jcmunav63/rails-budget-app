@@ -119,6 +119,15 @@ input::placeholder {
   font-size: 1rem;
 }
 
+select {
+  background: #e9e9e9;
+  color: #949494;
+}
+
+option:not(:checked) {
+  background-color: #ffffff;
+}
+
 /* Mobile devices (portrait) */
 @media only screen and (min-width: 320px) and (max-width: 480px) {
   * {
