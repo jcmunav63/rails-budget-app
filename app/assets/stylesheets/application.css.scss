@@ -111,11 +111,11 @@ table {
 }
 
 input::placeholder {
-  color: #cccccc;
+  color: #ccc;
 }
 
 .form-control::placeholder {
-  color: #cccccc;
+  color: #ccc;
   font-size: 1rem;
 }
 
@@ -125,7 +125,7 @@ select {
 }
 
 option:not(:checked) {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 /* Mobile devices (portrait) */

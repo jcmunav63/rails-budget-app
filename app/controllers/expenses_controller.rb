@@ -30,7 +30,7 @@ class ExpensesController < ApplicationController
   def create
     @category = Category.find(params[:category_id])
     puts @category.inspect
-  
+
     selected_category_ids = params[:expense][:categories].reject(&:empty?).map(&:to_i)
 
     if selected_category_ids.empty?
@@ -39,10 +39,10 @@ class ExpensesController < ApplicationController
       if @expense.save
         # Create a corresponding CategoryExpense record
         @category_expense = @category.category_expenses.create(expense_id: @expense.id)
-  
+
         # Update the total_expenses for the associated category
         @category.update(total_expenses: @category.total_expenses + @expense.amount)
-  
+
         redirect_to user_category_expenses_path(current_user, @category), notice: 'Expense was successfully created.'
       else
         render :new
@@ -65,7 +65,7 @@ class ExpensesController < ApplicationController
       #     category.update!(total_expenses: category.total_expenses + category_expense_amount)
       #   end
       # end
-  
+
       flash[:notice] = 'Some Expenses about to be created.'
       redirect_to user_category_expenses_path(current_user, @category)
     end
