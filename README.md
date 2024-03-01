@@ -47,7 +47,7 @@ The Ruby on Rails (RoR) Budget App is a basic mobile budget app for managing you
 - **Set up linters using Stylelint and Rubocop**
 - **Connect the Rails project to a PostgreSQL database.**
 - **Define and set up the Data Model using Active Record migration. Implement table associations and data processing methods in the data model.**
-- **Include controllers, and views for displaying: expense categories and transactions, a list of all expense categories, creation of a new category, creation and deletion of a transaction.**
+- **Include controllers, and views for displaying: expense categories and transactions, a list of all expense categories, creation of a new category, creation of a transaction.**
 - **Follow the design guidelines from a specific mobile app designer.**
 - **Implement user authentication by means of the Devise gem.**
 - **Implement authorization rules by means of the CanCanCan gem.**
@@ -66,7 +66,7 @@ In order to run this project you need:
 
 [Set Up Rails](https://www.ruby-lang.org/en/documentation/installation/)
 
-Prerquisites: Ruby, Ruby Development Kit (for Windows), Ruby Gems packaging system, and PostgreSQL database server. Run the following commands...
+Prerequisites: Ruby, Ruby Development Kit (for Windows), Ruby Gems packaging system, and PostgreSQL database server. Run the following commands...
 ```sh
 $ gem install rails
 ```
@@ -145,7 +145,7 @@ This application is deployed on Render. Visit the following link...
 https://rails-budget-app-ls62.onrender.com/
 
 You can visit my presentation video at,,,
-https://www.loom.com/share/5a2c26a3e52143e7a6dc90f6a8ccf463
+[Demo video...](https://www.loom.com/share/565e553e191e4d4fadd50d72a75ef8be?sid=74c7ac04-d87a-4b09-ac07-5b7feca791d0)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -176,16 +176,15 @@ Contributions, issues, and feature requests are welcome!
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project please give a star.
-Thanks in advance.
+If you like this project please give a star. Thanks in advance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to acknowledge Gregoire Vella for the originYou can review his project at: [on Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
+I would like to acknowledge Gregoire Vella for the original idea of this mobile app design (for iOS). You can review his project at: [on Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
 
-I would also like to thank all of my colleagues who inspire me to do my best everyday.
+I would also like to thank all my colleagues, who inspire me to do my best everyday.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
