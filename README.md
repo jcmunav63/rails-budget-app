@@ -176,13 +176,13 @@ Contributions, issues, and feature requests are welcome!
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project please give a star. Thanks in advance.
+If you like this project please give me a star on Github. Thanks in advance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to acknowledge Gregoire Vella for the original idea of this mobile app design (for iOS). You can review his project at: [on Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
+I would like to acknowledge Gregoire Vella for the original idea of this mobile app design (for iOS). You can review his project at: [Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
 
 I would also like to thank all my colleagues, who inspire me to do my best everyday.
 
