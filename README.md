@@ -145,7 +145,7 @@ This application is deployed on Render. Visit the following link...
 https://rails-budget-app-ls62.onrender.com/
 
 You can visit my presentation video at,,,
-[Demo video...](https://www.loom.com/share/565e553e191e4d4fadd50d72a75ef8be?sid=74c7ac04-d87a-4b09-ac07-5b7feca791d0)
+[Demo video...](https://youtu.be/lzTXx8sX3yw)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
