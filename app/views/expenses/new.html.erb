@@ -45,7 +45,7 @@
           <td><% form.label :categories %></td>
           <td>
             <%= form.select :categories, options_for_select(@categories.map { |cat| [cat.name, cat.id] }),
-              {include_blank: "Option - 1 or 2 additional categories:"}, {multiple: true, class: "form-control3",
+              {include_blank: "Can choose 1 additional category:"}, {multiple: true, class: "form-control3",
               style: "width: 100%; padding: 6px 3px 0 6px; color: #949494; border: none;"} %>
           </td>
         </tr>
