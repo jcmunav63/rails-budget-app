@@ -29,14 +29,13 @@ class ExpensesController < ApplicationController
     if selected_category_ids.empty?
       @expense = @category.expenses.build(expense_params)
       @expense.author_id = current_user.id
-      if @expense.save
-        # Create a corresponding CategoryExpense record
-        @category_expense = @category.category_expenses.create(expense_id: @expense.id)
-        # Update the total_expenses for the associated category
-        @category.update(total_expenses: @category.total_expenses + @expense.amount)
-        redirect_to user_category_expenses_path(current_user, @category),
-                    alert: 'Expense was successfully created.'
-      end
+
+      # Create a corresponding CategoryExpense record
+      @category_expense = @category.category_expenses.create(expense_id: @expense.id)
+      # Update the total_expenses for the associated category
+      @category.update(total_expenses: @category.total_expenses + @expense.amount)
+      redirect_to user_category_expenses_path(current_user, @category),
+                  alert: 'Expense was successfully created.'
     else
       save_for_two_categories(@category, selected_category_ids, @amount, @name)
       redirect_to user_category_expenses_path(current_user, @category)
@@ -46,7 +45,7 @@ class ExpensesController < ApplicationController
                         'Created Expense for two categories.'
                       end
     end
-    # rescue StandardError => e
+  rescue StandardError => e
     redirect_to user_category_expenses_path(current_user, @category),
                 alert: "Error creating expenses: #{e.message}"
   end
