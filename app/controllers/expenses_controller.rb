@@ -27,17 +27,11 @@ class ExpensesController < ApplicationController
     @name = params[:name]
     selected_category_ids = params[:expense][:categories].reject(&:empty?).map(&:to_i)
     if selected_category_ids.empty?
-      @expense = @category.expenses.build(expense_params)
-      @expense.author_id = current_user.id
-
-      # Create a corresponding CategoryExpense record
-      @category_expense = @category.category_expenses.create(expense_id: @expense.id)
-      # Update the total_expenses for the associated category
-      @category.update(total_expenses: @category.total_expenses + @expense.amount)
+      save_for_one_category(@category, selected_category_ids)
       redirect_to user_category_expenses_path(current_user, @category),
                   alert: 'Expense was successfully created.'
     else
-      save_for_two_categories(@category, selected_category_ids, @amount, @name)
+      save_for_two_categories(@category, selected_category_ids)
       redirect_to user_category_expenses_path(current_user, @category)
       flash[:alert] = if selected_category_ids.length > 1
                         'Only one additional category permitted.'
@@ -50,15 +44,29 @@ class ExpensesController < ApplicationController
                 alert: "Error creating expenses: #{e.message}"
   end
 
-  def save_for_two_categories(category, selected_category_ids)
-    @total_categories = selected_category_ids.length + 1
-    return unless @total_categories == 2
-
+  def save_for_one_category(category, _selected_category_ids)
     @expense = category.expenses.build(expense_params)
     @expense.author_id = current_user.id
     return unless @expense.save
 
+    # Create a corresponding CategoryExpense record
+    @category_expense = category.category_expenses.create(expense_id: @expense.id)
+    # Update the total_expenses for the associated category
+    category.update(total_expenses: category.total_expenses + @expense.amount)
+  end
+
+  def save_for_two_categories(category, selected_category_ids)
+    @total_categories = selected_category_ids.length + 1
+    return unless @total_categories == 2
+
+    puts "Total categories: #{@total_categories.inspect}"
+    @expense = category.expenses.build(expense_params)
+    @expense.author_id = current_user.id
+    puts "Expense with author_id: #{@expense.inspect}"
+    return unless @expense.save
+
     @half = @expense.amount / 2
+    puts "Half of amount: #{@half}"
     @expense.update(amount: @expense.amount - @half)
     # Create a corresponding CategoryExpense record
     @category_expense = category.category_expenses.create(expense_id: @expense.id)
@@ -70,15 +78,13 @@ class ExpensesController < ApplicationController
     @expense2 = Expense.new
     @expense2 = @category2.expenses.build(expense_params)
     @expense2.author_id = current_user.id
-    if @expense2.save
-      @expense2.update(amount: @expense2.amount - @half)
-      # Create a corresponding CategoryExpense record
-      @category_expense2 = @category2.category_expenses.create(expense_id: @expense2.id)
-      # Update the total_expenses for the associated category
-      @category2.update(total_expenses: @category2.total_expenses + @half)
-    else
-      flash[:alert] = "Failed to create the Expense for the second category: #{e.message}"
-    end
+    return unless @expense2.save
+
+    @expense2.update(amount: @expense2.amount - @half)
+    # Create a corresponding CategoryExpense record
+    @category_expense2 = @category2.category_expenses.create(expense_id: @expense2.id)
+    # Update the total_expenses for the associated category
+    @category2.update(total_expenses: @category2.total_expenses + @half)
   end
 
   private
