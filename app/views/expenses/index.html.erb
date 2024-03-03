@@ -57,7 +57,7 @@
   </div>
   <% if can? :create, Expense %>
     <div style="width: 100%; background-color: #5fb523; position: absolute; bottom: 0;">
-      <%= link_to "SCAN", new_user_category_expense_path(current_user, @category), class:
+      <%= link_to "ADD A NEW TRANSACTION", new_user_category_expense_path(current_user, @category), class:
         "btn btn-primary", style: "background-color: transparent; border: 1px solid white;
         width:94%; margin: 3%; padding: 8px; color: white;" %>
     </div>
