@@ -1,0 +1,25 @@
+<div class="container" style="width: 100%; height: 100%;">
+  <div style="margin: 0 3%; padding: 0; width: 94%;">
+    <div style="width: 100%; margin: 0;">
+      <h1 class="text-center fw-bold proxima-nova" style="margin-top: 50px;">
+        Smart Budget App</h1>
+      <h5 class="text-center proxima-nova" style="margin-bottom: 30px;">
+        Manage your expenses wisely!</h5>
+      <div class="text-center">
+        <img src="/assets/image2.png" style="width:200px; height:200px" alt="Prepare a budget">
+      </div>
+    </div>
+  </div>
+  <div style="position: absolute; bottom: 0; left: 0; width: 100%; margin: 0;">
+    <p style="width: 100%; margin: 0;">
+      <%= link_to "LOG IN", new_user_session_path, class: "btn btn-primary fw-bold proxima-nova-light",
+        style: "width: 100%; background-color: #3778c2; border-radius: 2px;
+        font-size: 0.8rem; padding: 4px 0;" %>
+    </p>
+    <p style="width: 100%; margin: 0;">
+      <%= link_to "SIGN UP", new_user_registration_path, class: "btn btn-secondary fw-bold
+        proxima-nova-light", style: "width: 100%; background-color: transparent; color: gray;
+        font-size: 0.8rem; border: none; padding: 4px 0;" %>
+    </p>
+  </div>
+</div>

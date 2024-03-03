@@ -30,7 +30,7 @@
 
 ## 📖 About project - Ruby on Rails Budget App <a name="about-project"></a>
 
-The Ruby on Rails (RoR) Budget App is a basic mobile budget app for managing your personal budget, including a PostgreSQL database connection, user authentication, CRUD operations, user authorization rules, and testing. It's a complete app.
+The Ruby on Rails (RoR) Budget App is a basic mobile budget app for managing your personal budget. It includes a PostgreSQL database connection, user authentication, CRUD operations, user authorization rules, and testing. It's a complete app.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -47,9 +47,10 @@ The Ruby on Rails (RoR) Budget App is a basic mobile budget app for managing you
 - **Set up linters using Stylelint and Rubocop**
 - **Connect the Rails project to a PostgreSQL database.**
 - **Define and set up the Data Model using Active Record migration. Implement table associations and data processing methods in the data model.**
-- **Include controllers, and views for displaying: a list of recipes page (all), a list of public recipes page, a recipe details page, a list of ingredients (food) page, and a shopping list page (missing ingredients). Follow the wireframe designs.**
-- **Implementing user authentication by means of the Devise gem.**
-- **Implementing authorization rules by means of the CanCanCan gem.**
+- **Include controllers, and views for displaying: expense categories and transactions, a list of all expense categories, creation of a new category, creation of a transaction.**
+- **Follow the design guidelines from a specific mobile app designer.**
+- **Implement user authentication by means of the Devise gem.**
+- **Implement authorization rules by means of the CanCanCan gem.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -65,7 +66,7 @@ In order to run this project you need:
 
 [Set Up Rails](https://www.ruby-lang.org/en/documentation/installation/)
 
-Prerquisites: Ruby, Ruby Development Kit (for Windows), Ruby Gems packaging system, and PostgreSQL database server. Run the following commands...
+Prerequisites: Ruby, Ruby Development Kit (for Windows), Ruby Gems packaging system, and PostgreSQL database server. Run the following commands...
 ```sh
 $ gem install rails
 ```
@@ -79,7 +80,7 @@ $ gem install rails
 
 ### Install
 
-This project requires the following dependencies: Ruby interpreter, Gem package manager, Ruby on Rails web framework, PostgreSQL database server, RSpec for unit testing and Capybara for integration tests. Additionally, the project requires two linters checkers: RuboCop (Ruby) and Stylelint (CSS styles).
+This project requires the following dependencies: the Ruby interpreter, the Gem package manager, the Ruby on Rails web framework, a PostgreSQL database server, thr RSpec gem for unit testing and the Capybara gem for integration tests, the Devise gem for user authentication, and the CanCanCan gem for user authorization rules. Additionally, the project requires two linters checkers: RuboCop (Ruby) and Stylelint (CSS styles).
 
 ```sh
 bundle install
@@ -136,15 +137,18 @@ npx stylelint "**/*.{css,scss}"
 * Implement unit tests using RSpec.
 * Implement integration tests with RSpec & Capybara.
 
-### Deployment	
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This project has been deployed on Render (free version). You'll have to wait a few minutes if the server is inactive at some point.
+### Deployment
 
-URL: https://rails-budget-app.onrender.com/	
+This application is deployed on Render. Visit the following link...
+https://rails-budget-app-ls62.onrender.com/
+
+You can visit my presentation video at,,,
+[Demo video...](https://youtu.be/iQKwmSlahLw)
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
 
 ## 👥 Authors <a name="authors"></a>
 
@@ -158,7 +162,9 @@ URL: https://rails-budget-app.onrender.com/
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-- **Write here...**
+- **Add functionalities for deleting categories and expenses.**
+- **Add other options, like managing the assigned budget by period (week, month).**
+- **Add payment options.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -170,14 +176,15 @@ Contributions, issues, and feature requests are welcome!
 
 ## ⭐️ Show your support <a name="support"></a>
 
-If you like this project please give a star.
-Thanks in advance.
+If you like this project please give me a star on Github. Thanks in advance.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-We would like to thank all of my colleagues who inspire me to do my best everyday.
+I would like to acknowledge Gregoire Vella for the original idea of this mobile app design (for iOS). You can review his project at: [Behance](https://www.behance.net/gallery/19759151/Snapscan-iOs-design-and-branding?tracking_source=)
+
+I would also like to thank all my colleagues, who inspire me to do my best everyday.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -185,7 +192,7 @@ We would like to thank all of my colleagues who inspire me to do my best everyda
 
 **Did you create this project from scratch?**
 
-  - Yes, it is a complete Ruby on Rails project for creating a web Ruby on Rails Italian Recipes App, with connection to an external PostgreSQL database, CRUD operations, data validation, user authentication, and testing.
+  - Yes, it is a complete Ruby on Rails project for creating a web Ruby on Rails Budget App, with connection to an external PostgreSQL database, CRUD operations, data validation, user authentication, and testing.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

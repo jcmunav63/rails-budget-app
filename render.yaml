@@ -1,0 +1,23 @@
+databases:
+  - name: https://rails-budget-app.onrender.com/
+    databaseName: db_pg_budget_app
+    user: db_pg_budget_app_user
+    plan: free
+
+services:
+  - type: web
+    name: mysite
+    runtime: ruby
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    # preDeployCommand: "bundle exec rails db:migrate" # preDeployCommand only available on paid instance types
+    startCommand: "bundle exec rails server"
+    envVars:
+      - key: DATABASE_URLpostgres://db_pg_budget_app_user:TtgpHu7F7teFclSHpaWxOzplwUXkVSWO@dpg-cnd7igug1b2c739legm0-a/db_pg_budget_app
+        fromDatabase:
+          name: mysite
+          property: connectionString
+      - key: d32fb8429da789b4b95baea0e00524f6
+        sync: false
+      - key: WEB_CONCURRENCY
+        value: 2 # sensible default

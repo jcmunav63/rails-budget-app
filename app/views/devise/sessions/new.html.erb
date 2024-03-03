@@ -1,0 +1,33 @@
+<div style="width: 100%;">
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div style="background-color: #3778c2; height: 25px;">
+    </div>
+    <div style="background-color: #3778c2; height: 40px; width: 100%; display:flex;
+      justify-content: space-between; padding: 5px; margin-bottom: 8px; font-family: \'ProximaNova-Light\', sans-serif;">
+      <a href="/" class="link-light fw-bold link-offset-1 link-underline-opacity-0"
+        style="padding: 0, 0, 0, 4px; font-size: 1.5rem; !important;
+        vertical-align: top; !important; cursor: pointer;">&#11104;</a>
+      <span class="text-white fw-bold" style="font-family: 'ProximaNova-Light', sans-serif; !important;
+      font-size: 0.8rem; !important; margin-top:6px;">LOGIN</span>
+      <%= f.submit "Log In", style: "color: white; background-color: transparent;
+        border: none; padding-right: 4px; font-size: 0.8rem; !important; margin-top: 5px; cursor: pointer;" %>
+    </div>
+    <div>
+
+    <div style="background-color: white; margin-top: 12px;">
+      <div class="field">
+        <% f.label :email %>
+        <%= f.email_field :email, placeholder: "Email",
+          style: "border: none; width: 100%; padding: 6px; font-size: 0.9rem; color: #949494;" %>
+      </div>
+      <hr style="border-bottom: 1px solid #cccccc; margin: 2px 0 2px 6px;">
+      <div class="field">
+        <% f.label :password %>
+        <%= f.password_field :password, placeholder: "Password",
+          style: "border: none; width: 100%; padding: 6px; font-size: 0.9rem; color: #949494;" %>
+      </div>
+    </div><br />
+
+    <div><p style="color: #cccccc; text-align: center">Forgot password?</p></div>
+  <% end %>
+</div>

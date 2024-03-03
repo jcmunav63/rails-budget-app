@@ -1,0 +1,62 @@
+<div id="exp-new" class="container-fluid col-sm-12 p-0 h-100;">
+  <%= render partial: 'shared/navbar' %>
+  <div style="background-color: #3778c2; border: 1px solid #3778c2;">
+    <% unless current_page?('/') %>
+      <% if current_page?(new_user_category_path) %>
+        <%= link_to image_tag("left-arrow-white.png", style:"width: 6%; color: white; margin-left: 15px;
+          padding-bottom: 3px;"), user_categories_path(current_user), class: 'link-light link-offset-1-hover
+          link-underline link-underline-opacity-0 link-underline-opacity-75-hover' %>
+      <% else %>
+        <% if current_page?(user_category_expenses_path)%>
+          <%= link_to image_tag("left-arrow-white.png", style:"width: 6%; margin-left: 15px;
+            padding-bottom: 3px;"), user_categories_path(current_user), class: 'link-light link-offset-1-hover
+            link-underline link-underline-opacity-0 link-underline-opacity-75-hover' %>
+        <% else %>
+          <% if current_page?(new_user_category_expense_path)%>
+            <%= link_to image_tag("left-arrow-white.png", style:"width: 6%; color: white; margin-left: 15px;
+              padding-bottom: 3px;"), user_category_expenses_path(current_user, @category), class: 'link-light
+              link-offset-1-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+    <span class="text-white fw-bold" style="margin-left: 23%; padding-bottom: 6px;
+      font-size: 0.8rem;">NEW TRANSACTION</span>
+  </div>
+  <div class="container col-md-6 offset-md-3 p-0">
+    <h6 class="fw-bold proxima-nova" style="text-align: center; margin: 20px 0; color: #949494;">
+      <span style="font-size: 0.9rem; font-weight: 500;">Category: </span><%= @category.name %></h6>
+    <%= form_with model: [@category, @expense], url: user_category_expenses_path(current_user,
+      @category) do |form| %>
+      <table style="width:100%;">
+        <tr>
+          <td><% form.label :name %></td>
+          <td><%= form.text_field :name, class: "text-field", placeholder: "Name", required: "required",
+            style: "width:100%; border: none; color: #949494; padding: 0 3px 6px 6px;
+            font-size: 1rem;" %></td>
+        </tr>
+        <tr>
+          <td><% form.label :amount %></td>
+          <td><%= form.text_field :amount, class: "text-field", pattern: "[0-9]+([\.,][0-9]+)?",
+            placeholder: "Amount", required: "required", style: "width:100%; border: none; color: #949494;
+            padding: 6px 3px 0 6px; font-size: 1rem;" %></td>
+        </tr>
+        <tr>
+          <td><% form.label :categories %></td>
+          <td>
+            <%= form.select :categories, options_for_select(@categories.map { |cat| [cat.name, cat.id] }),
+              {include_blank: "Can choose 1 additional category:"}, {multiple: true, class: "form-control3",
+              style: "width: 100%; padding: 6px 3px 0 6px; color: #949494; border: none;"} %>
+          </td>
+        </tr>
+      </table>
+      <% if can? :create, Expense %>
+        <div style="width: 100%; background-color: #5fb523; position: absolute; bottom: 0;">
+          <%= form.submit "SAVE EXPENSE", class: "btn btn-primary",
+            style: "background-color: transparent; border: 1px solid white;
+            width:94%; margin: 3%; padding: 8px; color: white;" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>

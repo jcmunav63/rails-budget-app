@@ -1,0 +1,211 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap";
+
+/* Button background color */
+$mynewcolor1:#5fb523;
+
+/* Navbar background color */
+$mynewcolor2:#3778c2;
+
+/* Secondary button background color */
+$mynewcolor3:#434b54;
+
+/* Container background color */
+$mynewcolor4:#ececec;
+
+$mynewcolor5:#949494;
+
+.proxima-nova {
+  font-family: 'proxima-nova', sans-serif;
+}
+
+.proxima-nova-light {
+  font-family: 'ProximaNova-Light', sans-serif;
+}
+
+.navbar {
+  background-color: #3778c2;
+}
+
+.button-bg {
+  background: #5fb523;
+}
+
+.button-bg:hover {
+  filter: brightness(92%);
+}
+
+.button-bg:active {
+  filter: brightness(82%);
+}
+
+.navbar-toggler-icon {
+  $navbar-light-color: white;
+  $navbar-light-toggler-border-color: white;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "proxima-nova", sans-serif !important;
+}
+
+.btn-primary {
+  background: #5fb523;
+}
+
+.btn-primary:hover {
+  filter: brightness(92%);
+}
+
+.btn-primary:active {
+  filter: brightness(82%);
+}
+
+.btn-secondary {
+  background: #434b54;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  margin-top: 8px;
+}
+
+#splash-cont {
+  background-color: #f8fcff !important;
+}
+
+.splash-row {
+  background-color: #f8fcff;
+}
+
+#back-arrow {
+  font-size: 2rem;
+  border: solid 1px gray;
+  border-radius: 4px;
+  margin: 2px 4px;
+  margin-left: 2%;
+}
+
+input::placeholder {
+  color: #ccc;
+}
+
+.form-control::placeholder {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+select {
+  background: #e9e9e9;
+  color: #949494;
+}
+
+option:not(:checked) {
+  background-color: #fff;
+}
+
+/* Mobile devices (portrait) */
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #del-btn {
+    border: none;
+    background-color: transparent;
+    font-weight: 600;
+    color: red;
+  }
+
+  #cat-index,
+  #exp-index,
+  #cat-new,
+  #exp-new {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
+  }
+
+  .navbar-toggler {
+    color: $navbar-light-color;
+    border-color: $navbar-light-toggler-border-color;
+  }
+}
+
+/* iPads, Tablets */
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  .navbar-toggler {
+    color: $navbar-light-color;
+    border-color: $navbar-light-toggler-border-color;
+  }
+
+  #cat-index,
+  #exp-index,
+  #cat-new,
+  #exp-new {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
+  }
+}
+
+/* Small screens, laptops */
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #cat-index {
+    width: 90%;
+  }
+}
+
+/* Desktops, large screens */
+@media only screen and (min-width: 1025px) and (max-width: 1200px) {
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  #cat-index,
+  #cat-new {
+    margin-left: 5%;
+    margin-right: 5%;
+    width: auto;
+  }
+}
